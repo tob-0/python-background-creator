@@ -39,8 +39,8 @@ def main(args):
             if file_extension in ['jpg']:
                 files += [input_path.absolute()]
         files += [args.input]
-
-    creator = Creator(verbose=args.verbose, aspect_ratio=args.aspect_ratio)
+    aspect_ratio = args.aspect_ratio or '4/5'
+    creator = Creator(verbose=args.verbose, aspect_ratio=aspect_ratio)
 
     for file in files:
         creator.generate(file, background_type=args.type,
